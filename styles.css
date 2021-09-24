@@ -1,0 +1,51 @@
+body {
+  font-family: "Nosifer", cursive;
+  background-image: linear-gradient(to bottom, rgb(186, 81, 81), rgb(11, 5, 5));
+  background-repeat: no-repeat;
+}
+
+header {
+  text-align: center;
+}
+
+.main-page-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.player-emoji {
+  font-size: 60px;
+}
+
+.player1 {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  border:2px solid black;
+
+}
+
+.player2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border:2px solid black;
+}
+
+.main-game-board {
+  height: 100vh;
+  margin: 3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  text-align: center;
+  justify-content: space-around;
+}
+
+.cell {
+  color: red;
+  font-size: 4rem;
+  padding: 5 rem;
+  border: 5px solid black;
+  padding-top: 2rem;
+}
