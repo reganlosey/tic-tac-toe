@@ -11,29 +11,32 @@
 
 <body>
   <section class="content">
-    <header> 
+    <header>
       <h1>💀 Let's Play 💀</h1>
+      <h2><h2>
     </header>
     <main class="main-page-container">
-      <section class="player1"
-        <div class="player-emoji">🧟‍♂️</div>
-        <div class="player1-wins">Player 1 Score</div>
+      <aside class="player1">
+        <h2 class="player-emoji">🧟‍♂️</h2>
+        <h2 class="player1-wins">Score:</h2>
+        <h2 class="p2-current-score" id="p2-score">1</h2>
+      </aside>
+      <section class="main-game-board" id="game-grid">
+        <div class="cell cell-one" id="cell-one">1</div>
+        <div class="cell cell-two" id="cell-two">2</div>
+        <div class="cell cell-three"id="cell-three">3</div>
+        <div class="cell cell-four"id="cell-four">4</div>
+        <div class="cell cell-five"id="cell-five">5</div>
+        <div class="cell cell-six"id="cell-six">6</div>
+        <div class="cell cell-seven"id="cell-seven">7</div>
+        <div class="cell cell-eight"id="cell-eight">8</div>
+        <div class="cell cell-nine"id="cell-nine">9</div>
       </section>
-      <section class="main-game-board">
-        <div class="cell cell-one">1</div>
-        <div class="cell cell-two">2</div>
-        <div class="cell cell-three">3</div>
-        <div class="cell cell-four">4</div>
-        <div class="cell cell-five">5</div>
-        <div class="cell cell-six">6</div>
-        <div class="cell cell-seven">7</div>
-        <div class="cell cell-eight">8</div>
-        <div class="cell cell-nine">9</div>
-        </section>
-        <section class="player2">
-          <div class="player-emoji>">👺</div>
-          <div class="player2-wins">Player 2 Score</div>
-        </section>
+      <section class="player2">
+        <h2 class="player-emoji">👺</h2>
+        <h2 class="player2-wins">Score:</h2>
+        <h2 class="p2-current-score">2</h2>
+      </section>
 
     </main>
     <script type="text/javascript" src="player.js"></script>
