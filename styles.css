@@ -1,7 +1,9 @@
-html,
-body{
-  max-width: 100%;
-  max-height: 100%;
+*{
+  box-sizing: border-box;
+}
+html{
+  height:100%;
+  width:100%;
 }
 
 body {
@@ -9,6 +11,8 @@ body {
   background-image: linear-gradient(to bottom, rgb(186, 81, 81), rgb(11, 5, 5));
   background-repeat: no-repeat;
   text-shadow: 6px 5px 7px #690202;
+  max-height: 100%;
+  max-width: 100%;
 }
 
 header {
@@ -16,15 +20,16 @@ header {
   margin-top: 0rem;
 }
 
-.player-emoji{
+.zombie-token,
+.devil-token{
   margin-top:0;
   margin-left: 2rem;
   margin-bottom: 0;
   font-size: 3ch;
 }
 
-.player1-wins,
-.player2-wins{
+.zombie-wins,
+.devil-wins{
   margin: 0;
 }
 
@@ -79,13 +84,13 @@ header {
   border-right: 2px solid black;
 
 }
-.p1-current-score,
-.p2-current-score{
+.zombie-current-score,
+.devil-current-score{
   padding-left: 3rem;
 }
 
-.player1,
-.player2 {
+.player1-zombie,
+.player2-devil{
   postion: absolute;
   top: 0;
   bottom:0
