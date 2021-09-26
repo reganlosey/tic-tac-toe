@@ -1,9 +1,32 @@
 class Game {
-  constructor(zombie, devil) {
-    this.p1 = zombie;
-    this.p2 = devil;
-    this.currentPlayer = this.p1;
-    this.p1Turn = true;
-    this.cellTaken = false;
+  constructor(player1, player2) {
+    this.zombie = new Player('Zombie', 1, '🧟‍♂️');
+    this.devil = new Player('Devil', 2, '👺');
+    this.zombieTurn = true;
+    this.devilTurn = false;
+    this.cellOccupied = true;
+    this.gameCells = {
+      cell1: false,
+      cell2: false,
+      cell3: false,
+      cell4: false,
+      cell5: false,
+      cell6: false,
+      cell7: false,
+      cell8: false,
+      cell9: false,
+    }
+}
+  newTurn() {
+    if (this.zombieTurn === true) {
+      this.zombieTurn = false;
+      this.devilTurn = true;
+    } else if (this.devilTurn === true) {
+      this.devilTurn = false;
+      this.zombieTurn = true;
+    }
+  }
+
+  diagonalWin(){
   }
 }
