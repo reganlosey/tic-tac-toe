@@ -4,7 +4,7 @@ class Game {
     this.devil = new Player('Devil', 2, '👺');
     this.zombieTurn = true;
     this.devilTurn = false;
-    this.cellOccupied = true;
+    this.turnsTaken = 0;
     this.gameCells = {
       cell1: false,
       cell2: false,
@@ -16,7 +16,9 @@ class Game {
       cell8: false,
       cell9: false,
     }
-}
+  }
+
+  //123, 369
   newTurn() {
     if (this.zombieTurn === true) {
       this.zombieTurn = false;
@@ -27,6 +29,7 @@ class Game {
     }
   }
 
-  diagonalWin(){
+  diagonalWin() {
+
   }
 }

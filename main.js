@@ -15,44 +15,47 @@ var newGame = new Game();
 // Event Handlers
 function resetGame(event) {
   event.preventDefault;
-  // gameBoard.innerHTML = "";
-  // gameBoard.innerHTML += `
-  //   <div class="cell cell1" id="cell1">1</div>
-  //   <div class="cell cell2" id="cell2">2</div>
-  //   <div class="cell cell3" id="cell3">3</div>
-  //   <div class="cell cell4" id="cell4">4</div>
-  //   <div class="cell cell5" id="cell5">5</div>
-  //   <div class="cell cell6" id="cell6">6</div>
-  //   <div class="cell cell7" id="cell7">7</div>
-  //   <div class="cell cell8" id="cell8">8</div>
-  //   <div class="cell cell9" id="cell9">9</div>`
+  gameBoard.innerHTML = "";
+  gameBoard.innerHTML += `
+    <div class="cell cell1" id="cell1">1</div>
+    <div class="cell cell2" id="cell2">2</div>
+    <div class="cell cell3" id="cell3">3</div>
+    <div class="cell cell4" id="cell4">4</div>
+    <div class="cell cell5" id="cell5">5</div>
+    <div class="cell cell6" id="cell6">6</div>
+    <div class="cell cell7" id="cell7">7</div>
+    <div class="cell cell8" id="cell8">8</div>
+    <div class="cell cell9" id="cell9">9</div>`
   newGame.zombieTurn = true;
+  // currentTurn.innerHTML = `<h1>It's ${newGame.zombie.name}'s turn!'</h1>`
 }
 
 function placeToken(event) {
   if (event.target.closest('.cell') && newGame.zombieTurn === true) {
-    event.target.innerText = newGame.zombie.token;
+    event.target.innerHTML = `${newGame.zombie.token}`;
+    newGame.turnsTaken++
     newGame.newTurn();
+    updatePlayerTurn();
+    return;
   } else if (event.target.closest('.cell') && newGame.devilTurn === true) {
-    event.target.innerText = newGame.devil.token;
+    event.target.innerHTML = `${newGame.devil.token}`;
+    newGame.turnsTaken++
     newGame.newTurn();
+    updatePlayerTurn();
+    return;
   }
-  return;
+
 }
 
+
+function updatePlayerTurn() {
+  for (var i = 0; i < boardCells.length; i++) {
+    if (boardCells[i].innerHTML === newGame.zombie.token) {
+      currentTurn.innerHTML = `<h1> It's ${newGame.devil.name}'s turn!</h1>`
+      console.log("nice lmao");
+    } else {
+      currentTurn.innerHTML = `<h1> It's ${newGame.zombie.name}'s' turn!`
+    }
+  }
+}
 //target the position of the game board that I want to populate. If the click happens in that position, populate with the token of the current player, if it is their turn. If it is NOT their turn, populate with other token. Call switch turns function.
-
-
-// for (var i = 0; i < boardCells.length; i++) {
-//   if (event.target == boardCells[i] && newGame.zombieTurn == true) {
-//     event.target.innerText = newGame.zombie.token;
-//     event.target.id === newGame.zombie.id;
-//     console.log(event.target.id);
-//     newGame.zombieTurn = false;
-//     return
-//   } else if (newGame.zombieTurn === false) {
-//     newGame.devilTurn = true
-//     event.target.innerText = newGame.devil.token;
-//     newGame.devilTurn = false;
-//     newGame.newTurn();
-//   }
