@@ -1,0 +1,102 @@
+/* *{
+  box-sizing: border-box; */
+
+html{
+  height:100%;
+  width:100%;
+}
+
+body {
+  font-family: "Nosifer", cursive;
+  background-image: linear-gradient(to bottom, rgb(175, 73, 0), rgb(11, 5, 5));
+  background-repeat: no-repeat;
+  text-shadow: 6px 5px 7px #690202;
+  max-height: 100%;
+  max-width: 100%;
+}
+
+header {
+  text-align: center;
+  letter-spacing: 0.1em;
+  margin-top: 0rem;
+}
+
+.zombie-token,
+.devil-token{
+  margin-top:0;
+  margin-left: 2rem;
+  margin-bottom: 0;
+  font-size: 3ch;
+}
+
+.zombie-wins,
+.devil-wins{
+  margin: 0;
+}
+
+.content {
+  /* display: flex;
+  flex-direction: row;
+  justify-content: space-around; */
+}
+
+.main-page-container {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.main-game-board {
+  height: 100%;
+  margin: 1.06rem;
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  text-align: center;
+  justify-content: space-between;
+}
+
+.cell {
+  color: red;
+  font-size: 2rem;
+  padding: 3.3rem;
+  padding-top: 2rem;
+  display: inline-block;
+}
+.cell1,
+.cell4{
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.cell2,
+.cell5{
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+}
+.cell3,
+.cell6{
+  border-bottom: 2px solid black;
+}
+.cell7,
+.cell8{
+  border-right: 2px solid black;
+
+}
+.zombie-current-score,
+.devil-current-score{
+  padding-left: 3rem;
+}
+
+.player1-zombie,
+.player2-devil{
+  postion: absolute;
+  top: 0;
+  bottom:0
+  display: flex;
+  padding: 0 3rem 0 3rem;
+  align-items: flex-start;
+  vertical-align: middle;
+}
