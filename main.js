@@ -10,7 +10,7 @@ window.addEventListener('load', resetGame);
 gameBoard.addEventListener('click', placeToken);
 
 // Global Variable
-var newGame = new Game();
+var newGame = new Game;
 
 // Event Handlers
 function resetGame(event) {
@@ -27,35 +27,30 @@ function resetGame(event) {
     <div class="cell cell8" id="cell8">8</div>
     <div class="cell cell9" id="cell9">9</div>`
   newGame.zombieTurn = true;
-  // currentTurn.innerHTML = `<h1>It's ${newGame.zombie.name}'s turn!'</h1>`
+  showCurrentPlayer();
 }
 
 function placeToken(event) {
   if (event.target.closest('.cell') && newGame.zombieTurn === true) {
-    event.target.innerHTML = `${newGame.zombie.token}`;
+    event.target.innerHTML = `${newGame.currentPlayer.token}`;
     newGame.turnsTaken++
     newGame.newTurn();
-    updatePlayerTurn();
+    showCurrentPlayer();
     return;
   } else if (event.target.closest('.cell') && newGame.devilTurn === true) {
-    event.target.innerHTML = `${newGame.devil.token}`;
+    event.target.innerHTML = `${newGame.currentPlayer.token}`;
     newGame.turnsTaken++
     newGame.newTurn();
-    updatePlayerTurn();
+    showCurrentPlayer();
     return;
   }
-
 }
 
 
-function updatePlayerTurn() {
-  for (var i = 0; i < boardCells.length; i++) {
-    if (boardCells[i].innerHTML === newGame.zombie.token) {
-      currentTurn.innerHTML = `<h1> It's ${newGame.devil.name}'s turn!</h1>`
-      console.log("nice lmao");
-    } else {
-      currentTurn.innerHTML = `<h1> It's ${newGame.zombie.name}'s' turn!`
-    }
+function showCurrentPlayer() {
+  if (newGame.zombieTurn) {
+    currentTurn.innerHTML = `<h1>It's ${newGame.currentPlayer.name}'s turn!</h1>`
+  } else if (newGame.devilTurn) {
+    currentTurn.innerHTML = `<h1>It's ${newGame.currentPlayer.name}'s turn!</h1>`
   }
 }
-//target the position of the game board that I want to populate. If the click happens in that position, populate with the token of the current player, if it is their turn. If it is NOT their turn, populate with other token. Call switch turns function.
