@@ -64,6 +64,7 @@ class Game {
       this.zombie.wins++ ;
       this.zombie.saveWinstoStorage();
       zombieScore.innerHTML = `${this.zombie.wins}`
+      devilScore.innerHTML = `${this.devil.wins}`
       gameBoard.removeEventListener('click', placeToken);
     } else if (this.winningCombosDevil()){
       winnerMessage.innerHTML = `<h1>${this.devil.name} Wins.</h1>
@@ -73,17 +74,24 @@ class Game {
       this.devil.wins++;
       this.devil.saveWinstoStorage()
       devilScore.innerHTML = `${this.devil.wins}`
+      zombieScore.innerHTML = `${this.zombie.wins}`
       gameBoard.removeEventListener('click', placeToken);
     }
   }
-
+//write function to consolidate displaying scores
+//write function to consolidate disabling board
 
   declareDraw() {
     if (this.turnsTaken === 9 && !this.winningCombosZombie() && !this.winningCombosDevil()){
+      this.zombie.saveWinstoStorage();
+      this.devil.saveWinstoStorage()
       currentTurn.innerHTML = '';
         winnerMessage.innerHTML = `<h1>🪦 DRAW 🪦</h1>
         <button class="reset-button"id="reset-btn">Play Again?
         </button>`
+        zombieScore.innerHTML = `${this.zombie.wins}`
+        devilScore.innerHTML = `${this.devil.wins}`
       }
     }
+
 }

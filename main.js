@@ -21,6 +21,8 @@ function resetGame(event) {
   showCurrentPlayer();
   newGame.zombie.retrieveWinsFromStorage();
   newGame.devil.retrieveWinsFromStorage();
+  zombieScore.innerHTML = `${newGame.zombie.wins}`
+  devilScore.innerHTML = `${newGame.devil.wins}`
 }
 
 function placeToken(event) {
