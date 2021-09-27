@@ -17,33 +17,34 @@ function resetGame(event) {
   event.preventDefault;
   gameBoard.innerHTML = "";
   gameBoard.innerHTML += `
-    <div class="cell cell1" id="cell1">1</div>
-    <div class="cell cell2" id="cell2">2</div>
-    <div class="cell cell3" id="cell3">3</div>
-    <div class="cell cell4" id="cell4">4</div>
-    <div class="cell cell5" id="cell5">5</div>
-    <div class="cell cell6" id="cell6">6</div>
-    <div class="cell cell7" id="cell7">7</div>
-    <div class="cell cell8" id="cell8">8</div>
-    <div class="cell cell9" id="cell9">9</div>`
+    <div class="cell cell1" id="cell1"></div>
+    <div class="cell cell2" id="cell2"></div>
+    <div class="cell cell3" id="cell3"></div>
+    <div class="cell cell4" id="cell4"></div>
+    <div class="cell cell5" id="cell5"></div>
+    <div class="cell cell6" id="cell6"></div>
+    <div class="cell cell7" id="cell7"></div>
+    <div class="cell cell8" id="cell8"></div>
+    <div class="cell cell9" id="cell9"></div>`
   newGame.zombieTurn = true;
   showCurrentPlayer();
 }
 
 function placeToken(event) {
-  if (event.target.closest('.cell') && newGame.zombieTurn === true) {
+  if (!event.target.innerHTML) {
     event.target.innerHTML = `${newGame.currentPlayer.token}`;
     newGame.turnsTaken++
     newGame.newTurn();
     showCurrentPlayer();
     return;
-  } else if (event.target.closest('.cell') && newGame.devilTurn === true) {
-    event.target.innerHTML = `${newGame.currentPlayer.token}`;
-    newGame.turnsTaken++
-    newGame.newTurn();
-    showCurrentPlayer();
-    return;
-  }
+  // } else if (event.target.closest('.cell') && newGame.devilTurn === true) {
+  //   event.target.innerHTML = `${newGame.currentPlayer.token}`;
+  //   newGame.turnsTaken++
+  //   newGame.newTurn();
+  //   showCurrentPlayer();
+  //   return;
+  // }
+}
 }
 
 
