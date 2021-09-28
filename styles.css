@@ -102,3 +102,6 @@ header {
 .hidden {
   display:none;
 }
+.disabledCells{
+  pointer-events: none;
+}
