@@ -99,3 +99,9 @@ header {
   align-items: flex-start;
   vertical-align: middle;
 }
+.hidden {
+  display:none;
+}
+.disabledCells{
+  pointer-events: none;
+}
