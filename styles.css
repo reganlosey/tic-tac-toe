@@ -99,3 +99,6 @@ header {
   align-items: flex-start;
   vertical-align: middle;
 }
+.hidden {
+  display:none;
+}

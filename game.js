@@ -25,73 +25,60 @@ class Game {
     }
   }
 
-  winningCombosZombie() {
-    if (this.cells[1] === this.zombie.token && this.cells[2] === this.zombie.token && this.cells[3] === this.zombie.token ||
-      this.cells[4] === this.zombie.token && this.cells[5] === this.zombie.token && this.cells[6] === this.zombie.token ||
-      this.cells[7] === this.zombie.token && this.cells[8] === this.zombie.token && this.cells[9] === this.zombie.token ||
-      this.cells[1] === this.zombie.token && this.cells[4] === this.zombie.token && this.cells[7] === this.zombie.token ||
-      this.cells[2] === this.zombie.token && this.cells[5] === this.zombie.token && this.cells[8] === this.zombie.token ||
-      this.cells[3] === this.zombie.token && this.cells[6] === this.zombie.token && this.cells[9] === this.zombie.token ||
-      this.cells[3] === this.zombie.token && this.cells[5] === this.zombie.token && this.cells[7] === this.zombie.token ||
-      this.cells[1] === this.zombie.token && this.cells[5] === this.zombie.token && this.cells[9] === this.zombie.token
+  winningCombos(token) {
+    if (this.cells[1] === token && this.cells[2] === token && this.cells[3] === token  ||
+      this.cells[4] === token && this.cells[5] === token && this.cells[6] === token  ||
+      this.cells[7] === token && this.cells[8] === token && this.cells[9] === token  ||
+      this.cells[1] === token && this.cells[4] === token && this.cells[7] === token  ||
+      this.cells[2] === token && this.cells[5] === token && this.cells[8] === token  ||
+      this.cells[3] === token && this.cells[6] === token && this.cells[9] === token  ||
+      this.cells[3] === token && this.cells[5] === token && this.cells[7] === token  ||
+      this.cells[1] === token && this.cells[5] === token && this.cells[9] === token
     ) {
       return true;
     } else {
       return false
     }
   }
-  winningCombosDevil() {
-    if (this.cells[1] === this.devil.token && this.cells[2] === this.devil.token && this.cells[3] === this.devil.token ||
-      this.cells[4] === this.devil.token && this.cells[5] === this.devil.token && this.cells[6] === this.devil.token ||
-      this.cells[7] === this.devil.token && this.cells[8] === this.devil.token && this.cells[9] === this.devil.token ||
-      this.cells[1] === this.devil.token && this.cells[4] === this.devil.token && this.cells[7] === this.devil.token ||
-      this.cells[2] === this.devil.token && this.cells[5] === this.devil.token && this.cells[8] === this.devil.token ||
-      this.cells[3] === this.devil.token && this.cells[6] === this.devil.token && this.cells[9] === this.devil.token ||
-      this.cells[3] === this.devil.token && this.cells[5] === this.devil.token && this.cells[7] === this.devil.token ||
-      this.cells[1] === this.devil.token && this.cells[5] === this.devil.token && this.cells[9] === this.devil.token
-    ) {
-      return true;
-    } else {
-      return false;
-    }
-}
+
   declareWinner() {
-    if (this.winningCombosZombie()) {
-      winnerMessage.innerHTML = `<h1>${this.zombie.name} Wins.</h1>
-      <button class="reset-button"id="reset-btn">Play Again?
-      </button>`
-      currentTurn.innerHTML = '';
+    var p1Zombie = this.winningCombos(`${this.zombie.token}`);
+    var p2Devil = this.winningCombos(`${this.devil.token}`);
+    if (p1Zombie) {
+      winnerMessage.innerHTML = `<h1>${this.zombie.name} Wins.</h1>`
+      hide(currentTurn);
       this.zombie.wins++ ;
       this.zombie.saveWinstoStorage();
-      zombieScore.innerHTML = `${this.zombie.wins}`
-      devilScore.innerHTML = `${this.devil.wins}`
-      gameBoard.removeEventListener('click', placeToken);
-    } else if (this.winningCombosDevil()){
-      winnerMessage.innerHTML = `<h1>${this.devil.name} Wins.</h1>
-      <button class="reset-button"id="reset-btn">Play Again?
-      </button>`
-      currentTurn.innerHTML = ''; //refactor to change to winning message and play again button
+      displayScores()
+      disableBoard();
+    } else if (p2Devil){
+      winnerMessage.innerHTML = `<h1>${this.devil.name} Wins.</h1>`
+      hide(currentTurn); //refactor to change to winning message and play again button
       this.devil.wins++;
       this.devil.saveWinstoStorage()
-      devilScore.innerHTML = `${this.devil.wins}`
-      zombieScore.innerHTML = `${this.zombie.wins}`
-      gameBoard.removeEventListener('click', placeToken);
+      displayScores();
+      disableBoard();
     }
   }
-//write function to consolidate displaying scores
-//write function to consolidate disabling board
 
   declareDraw() {
-    if (this.turnsTaken === 9 && !this.winningCombosZombie() && !this.winningCombosDevil()){
+    if (this.turnsTaken === 9 && !this.declareWinner()){
       this.zombie.saveWinstoStorage();
-      this.devil.saveWinstoStorage()
-      currentTurn.innerHTML = '';
-        winnerMessage.innerHTML = `<h1>🪦 DRAW 🪦</h1>
-        <button class="reset-button"id="reset-btn">Play Again?
-        </button>`
-        zombieScore.innerHTML = `${this.zombie.wins}`
-        devilScore.innerHTML = `${this.devil.wins}`
+      this.devil.saveWinstoStorage();
+      hide(currentTurn);
+        winnerMessage.innerHTML = `<h1>🪦 DRAW 🪦</h1>`
+        displayScores();
       }
     }
+
+    //   resetGame(event) {
+    //   event.preventDefault;
+    //   this.cells= '';
+    //   this.zombieTurn = true;
+    //   showCurrentPlayer();
+    //   this.zombie.retrieveWinsFromStorage();
+    //   this.devil.retrieveWinsFromStorage();
+    //   displayScores();
+    // }
 
 }
