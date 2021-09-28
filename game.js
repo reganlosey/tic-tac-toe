@@ -8,6 +8,7 @@ class Game {
     this.currentPlayer = this.zombie;
     this.cells = ['', '', '', '', '', '', '', '', ''];
   }
+
   updateCurrentCell(cellId) {
     var currentCell = cellId;
     this.cells[currentCell] = this.currentPlayer.token;
@@ -45,19 +46,26 @@ class Game {
     var p1Zombie = this.winningCombos(`${this.zombie.token}`);
     var p2Devil = this.winningCombos(`${this.devil.token}`);
     if (p1Zombie) {
-      winnerMessage.innerHTML = `<h1>${this.zombie.name} Wins.</h1>`
+      winnerMessage.innerHTML = `<h1>${this.zombie.name} Wins</h1>`
       hide(currentTurn);
       this.zombie.wins++ ;
       this.zombie.saveWinstoStorage();
-      displayScores()
-      disableBoard();
-    } else if (p2Devil){
-      winnerMessage.innerHTML = `<h1>${this.devil.name} Wins.</h1>`
-      hide(currentTurn); //refactor to change to winning message and play again button
-      this.devil.wins++;
-      this.devil.saveWinstoStorage()
       displayScores();
       disableBoard();
+      setTimeout(timeOutRefresh, 2000)
+      return true;
+    } else if (p2Devil){
+      winnerMessage.innerHTML = `<h1>${this.devil.name} Wins</h1>`
+      hide(currentTurn);
+      this.devil.wins++;
+      this.devil.saveWinstoStorage();
+      displayScores();
+      disableBoard();
+      setTimeout(timeOutRefresh, 2000)
+      return true;
+      // gameBoard.classList.add('disabledCells');
+      // gameBoard.classList.remove('disabledCells');
+
     }
   }
 
@@ -66,19 +74,10 @@ class Game {
       this.zombie.saveWinstoStorage();
       this.devil.saveWinstoStorage();
       hide(currentTurn);
-        winnerMessage.innerHTML = `<h1>🪦 DRAW 🪦</h1>`
+        drawMessage.innerHTML = `<h1>🪦 DRAW 🪦</h1>`
         displayScores();
+        setTimeout(timeOutRefresh, 2000)
+        return true;
       }
     }
-
-    //   resetGame(event) {
-    //   event.preventDefault;
-    //   this.cells= '';
-    //   this.zombieTurn = true;
-    //   showCurrentPlayer();
-    //   this.zombie.retrieveWinsFromStorage();
-    //   this.devil.retrieveWinsFromStorage();
-    //   displayScores();
-    // }
-
 }

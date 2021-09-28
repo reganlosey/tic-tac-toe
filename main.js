@@ -5,6 +5,7 @@ var winnerMessage = document.querySelector('#display-winner');
 var zombieScore = document.querySelector('#zombie-score');
 var devilScore = document.querySelector('#devil-score');
 var resetButton = document.querySelector('#reset-button');
+var drawMessage = document.querySelector('#draw-message');
 
 // Event Listeners
 window.addEventListener('load', refreshBoard);
@@ -26,10 +27,17 @@ var newGame = new Game();
 // }
 
 function refreshBoard(){
+  for (var i =0; i < boardCells.length; i++){
+    boardCells[i].innerHTML = ''
+  }
+  newGame.cells = ['', '', '', '', '', '', '', '', ''];
   newGame.zombie.retrieveWinsFromStorage();
   newGame.devil.retrieveWinsFromStorage();
   showCurrentPlayer();
+  winnerMessage.innerHTML = ``
   displayScores();
+  newGame.turnsTaken = 0;
+  enableBoard();
 }
 
 function resetGame(){
@@ -42,10 +50,10 @@ function resetGame(){
   newGame.devil.wins = 0;
   newGame.turnsTaken = 0;
   displayScores();
-  newGame.zombieTurn = true;
+  newGame.devilTurn = true;
   winnerMessage.innerHTML = '';
   show(currentTurn);
-  gameBoard.addEventListener('click',placeToken);
+  enableBoard();
 }
 function placeToken(event) {
   var selectedCell = event.target;
@@ -85,4 +93,23 @@ function displayScores(){
 
 function disableBoard(){
   gameBoard.removeEventListener('click', placeToken);
+}
+
+function enableBoard(){
+  gameBoard.addEventListener('click', placeToken);
+}
+
+function timeOutRefresh(){
+  for (var i =0; i < boardCells.length; i++){
+    boardCells[i].innerHTML =''
+  }
+  newGame.cells =  ['', '', '', '', '', '', '', '', ''];
+  displayScores();
+  newGame.devilTurn = true;
+  newGame.turnsTaken = 0;
+  winnerMessage.innerHTML = '';
+  drawMessage.innerHTML= '';
+  show(currentTurn);
+  enableBoard();
+
 }
