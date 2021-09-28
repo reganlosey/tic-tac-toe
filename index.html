@@ -10,21 +10,22 @@
 </head>
 
 <body>
-  <section class="content">
+  <section class="header-content">
     <header class="current-turn"id ="whose-turn">
     </header>
     <header class="show-winner" id="display-winner">
     </header>
     <header class="show-draw"id="draw-message">
     </header>
-    </section>
+  </section>
     <main class="main-page-container">
       <aside class="player1-zombie">
         <h2 class="zombie-token" id="zombie">🧟‍♂️</h2>
         <h2 class="zombie-wins">Score:</h2>
         <h2 class="zombie-current-score" id="zombie-score"></h2>
       </aside>
-      <section class="main-game-board" id="game-grid">
+      <form class="board-wrapper">
+        <section class="main-game-board" id="game-grid">
         <div class="cell cell1" id=1></div>
         <div class="cell cell2" id=2></div>
         <div class="cell cell3" id=3></div>
@@ -34,14 +35,17 @@
         <div class="cell cell7" id=7></div>
         <div class="cell cell8" id=8></div>
         <div class="cell cell9" id=9></div>
-        <button class="board-reset-btn"id="reset-button">Reset Board</button>
-      </section>
-      <section class="player2-devil">
-        <h2 class="devil-token" id="devil">👺</h2>
-        <h2 class="devil-wins">Score:</h2>
-        <h2 class="devil-current-score" id="devil-score"></h2>
+        </section>
+      </form>
+      <section class="player2-goblin">
+        <h2 class="goblin-token" id="goblin">👹</h2>
+        <h2 class="goblin-wins">Score:</h2>
+        <h2 class="goblin-current-score" id="goblin-score"></h2>
       </section>
     </main>
+    <div class="play-again"id="play-again-message">
+      <button class="board-reset-btn" id="reset-button">⚰️ BEGIN AGAIN ⚰️</button>
+    </div>
   </section>
   <script type="text/javascript" src="player.js"></script>
   <script type="text/javascript" src="game.js"></script>
