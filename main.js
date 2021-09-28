@@ -3,7 +3,7 @@ var boardCells = document.querySelectorAll('.cell');
 var currentTurn = document.querySelector('#whose-turn');
 var winnerMessage = document.querySelector('#display-winner');
 var zombieScore = document.querySelector('#zombie-score');
-var devilScore = document.querySelector('#devil-score');
+var goblinScore = document.querySelector('#goblin-score');
 var resetButton = document.querySelector('#reset-button');
 var drawMessage = document.querySelector('#draw-message');
 
@@ -15,24 +15,15 @@ resetButton.addEventListener('click', resetGame);
 
 // Global Variable
 var newGame = new Game();
-// Event Handlers
-// function resetGame(event) {
-//   event.preventDefault;
-//   boardCells.innerHTML = '';
-//   newGame.zombieTurn = true;
-//   showCurrentPlayer();
-//   newGame.zombie.retrieveWinsFromStorage();
-//   newGame.devil.retrieveWinsFromStorage();
-//   displayScores();
-// }
 
+//Event Handlers
 function refreshBoard(){
   for (var i =0; i < boardCells.length; i++){
     boardCells[i].innerHTML = ''
   }
   newGame.cells = ['', '', '', '', '', '', '', '', ''];
   newGame.zombie.retrieveWinsFromStorage();
-  newGame.devil.retrieveWinsFromStorage();
+  newGame.goblin.retrieveWinsFromStorage();
   showCurrentPlayer();
   winnerMessage.innerHTML = ``
   displayScores();
@@ -47,10 +38,10 @@ function resetGame(){
   newGame.cells =  ['', '', '', '', '', '', '', '', ''];
   localStorage.clear();
   newGame.zombie.wins = 0;
-  newGame.devil.wins = 0;
+  newGame.goblin.wins = 0;
   newGame.turnsTaken = 0;
   displayScores();
-  newGame.devilTurn = true;
+  newGame.goblinTurn = true;
   winnerMessage.innerHTML = '';
   show(currentTurn);
   enableBoard();
@@ -69,11 +60,11 @@ function placeToken(event) {
     return;
   }
 }
-
+//Helper Functions
 function showCurrentPlayer() {
   if (newGame.zombieTurn) {
     currentTurn.innerHTML = `<h1>${newGame.currentPlayer.name}, make your move</h1>`
-  } else if (newGame.devilTurn) {
+  } else if (newGame.goblinTurn) {
     currentTurn.innerHTML = `<h1>${newGame.currentPlayer.name}, make your move</h1>`
   }
 }
@@ -88,7 +79,7 @@ function show(element){
 
 function displayScores(){
   zombieScore.innerHTML = `${newGame.zombie.wins}`
-  devilScore.innerHTML = `${newGame.devil.wins}`
+  goblinScore.innerHTML = `${newGame.goblin.wins}`
 }
 
 function disableBoard(){
@@ -105,7 +96,7 @@ function timeOutRefresh(){
   }
   newGame.cells =  ['', '', '', '', '', '', '', '', ''];
   displayScores();
-  newGame.devilTurn = true;
+  newGame.goblinTurn = true;
   newGame.turnsTaken = 0;
   winnerMessage.innerHTML = '';
   drawMessage.innerHTML= '';

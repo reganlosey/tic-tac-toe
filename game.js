@@ -1,9 +1,9 @@
 class Game {
   constructor() {
     this.zombie = new Player('Zombie', 1, '🧟‍♂️');
-    this.devil = new Player('Devil', 2, '👺');
+    this.goblin = new Player('Goblin', 2, '👹');
     this.zombieTurn = true;
-    this.devilTurn = false;
+    this.goblinTurn = false;
     this.turnsTaken = 0;
     this.currentPlayer = this.zombie;
     this.cells = ['', '', '', '', '', '', '', '', ''];
@@ -17,10 +17,10 @@ class Game {
   newTurn() {
     if (this.zombieTurn === true) {
       this.zombieTurn = false;
-      this.devilTurn = true;
-      this.currentPlayer = this.devil;
-    } else if (this.devilTurn === true) {
-      this.devilTurn = false;
+      this.goblinTurn = true;
+      this.currentPlayer = this.goblin;
+    } else if (this.goblinTurn === true) {
+      this.goblinTurn = false;
       this.zombieTurn = true;
       this.currentPlayer = this.zombie;
     }
@@ -44,39 +44,38 @@ class Game {
 
   declareWinner() {
     var p1Zombie = this.winningCombos(`${this.zombie.token}`);
-    var p2Devil = this.winningCombos(`${this.devil.token}`);
+    var p2goblin = this.winningCombos(`${this.goblin.token}`);
     if (p1Zombie) {
-      winnerMessage.innerHTML = `<h1>${this.zombie.name} Wins</h1>`
+      winnerMessage.innerHTML = `<h1>${this.zombie.name} Wins</h1>
+      <h2>💀 Woe To The Vanquished💀 </h2>`
       hide(currentTurn);
       this.zombie.wins++ ;
       this.zombie.saveWinstoStorage();
       displayScores();
       disableBoard();
-      setTimeout(timeOutRefresh, 2000)
+      setTimeout(timeOutRefresh, 3000)
       return true;
-    } else if (p2Devil){
-      winnerMessage.innerHTML = `<h1>${this.devil.name} Wins</h1>`
+    } else if (p2goblin){
+      winnerMessage.innerHTML = `<h1>${this.goblin.name} Wins</h1>
+      <h2>💀 Woe To The Vanquished💀 </h2>`
       hide(currentTurn);
-      this.devil.wins++;
-      this.devil.saveWinstoStorage();
+      this.goblin.wins++;
+      this.goblin.saveWinstoStorage();
       displayScores();
       disableBoard();
-      setTimeout(timeOutRefresh, 2000)
+      setTimeout(timeOutRefresh, 3000)
       return true;
-      // gameBoard.classList.add('disabledCells');
-      // gameBoard.classList.remove('disabledCells');
-
     }
   }
 
   declareDraw() {
     if (this.turnsTaken === 9 && !this.declareWinner()){
       this.zombie.saveWinstoStorage();
-      this.devil.saveWinstoStorage();
+      this.goblin.saveWinstoStorage();
       hide(currentTurn);
-        drawMessage.innerHTML = `<h1>🪦 DRAW 🪦</h1>`
+        drawMessage.innerHTML = `<h1>☠️ DEAD END ☠️</h1>`
         displayScores();
-        setTimeout(timeOutRefresh, 2000)
+        setTimeout(timeOutRefresh, 3000)
         return true;
       }
     }
