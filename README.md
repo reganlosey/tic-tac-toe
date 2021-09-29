@@ -6,7 +6,8 @@
 #### Project Manager : [Heather Faerber](https://github.com/hfaerber)
 
 <br>
-### [Play The Game Here!](https://reganlosey.github.io/tic-tac-toe/)
+
+###[Play The Game Here!](https://reganlosey.github.io/tic-tac-toe/)
 
 <br>
 
