@@ -21,14 +21,14 @@ body {
   height: 4.6rem;
   margin-bottom: 2rem;
   font-size: 1.4ch;
-  text-shadow: 4px 6px 1px #000000;
+  text-shadow: 4px 3px 1px #5a00ad;
 
 }
 header {
   text-align: center;
   letter-spacing: 0.1em;
   margin-top: -1.1rem;
-  color: #b00000;
+  color: #d86e00;
 }
 
 header > h2{
@@ -82,28 +82,28 @@ header > h2{
   height: 8.5rem;
   width: 9.5rem;
   display: inline-block;
-  text-shadow: 4px 3px 8px #831a02;
-  box-shadow: 0px 0px 40px #710000;
+  text-shadow: 4px 3px 8px #a60000;
+  box-shadow: 0px 0px 40px #6f0071bf;
 }
 
 .cell1,
 .cell4{
-  border-bottom: 4px solid #c70000;
-  border-right: 4px solid #c70000;
+  border-bottom: 4px solid #f49300;
+  border-right: 4px solid #f49300;
 }
 
 .cell2,
 .cell5{
-  border-bottom: 4px solid #c70000;
-  border-right: 4px solid #c70000;
+  border-bottom: 4px solid #f49300;
+  border-right: 4px solid #f49300;
 }
 .cell3,
 .cell6{
-  border-bottom: 4px solid #c70000;
+  border-bottom: 4px solid #f49300;
 }
 .cell7,
 .cell8{
-  border-right: 4px solid #c70000;
+  border-right: 4px solid #f49300;
 
 }
 
@@ -118,8 +118,8 @@ header > h2{
   padding: 0;
   margin: 0;
   font-size: 3ch;
-  color: #b00000;
-  text-shadow: 4px 6px 1px #000000;
+  color: #d86e00;
+  text-shadow: 4px 3px 1px #5a00ad;
 }
 
 .player1-zombie{
@@ -151,7 +151,7 @@ header > h2{
   margin-left: 0rem;
   margin-bottom: -20px;
   font-size: 5ch;
-  text-shadow: 4px 3px 8px #831a02;
+  text-shadow: 4px 3px 8px #00c03b;
 
 }
 
@@ -159,8 +159,8 @@ header > h2{
 .goblin-wins{
   margin: 0;
   font-size: 2ch;
-  color: #b00000;
-  text-shadow: 4px 6px 1px #000000;
+  color: #d86e00;
+  text-shadow: 4px 3px 1px #5a00ad;
 }
 
 .hidden {
