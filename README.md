@@ -33,7 +33,7 @@ The two players are assigned their respective tokens, the zombie emoji and the g
 
 - This project, as difficult as it was, really helped me put a lot of pieces together in the sense of connecting the data model to the DOM.
 
-- The satisfaction of getting the draw function to fire was great. Initially the trouble was figuring out that the draw function needed to meet both conditions of the winning combination not being met *and* the turns taken being at a total of nine gave me some trouble at first.
+- The satisfaction of getting the draw function to fire was great. Initially the trouble was figuring out that the draw function needed to meet both conditions of the winning combination not being met *and* the turns taken being at a total of nine.
 
 - Playing with CSS was a lot of fun this time around, specifically once I had gotten all of the functionality in place and could actually play the game. Any time that I spent playing with the CSS before that point felt like productive procrastination.
 
@@ -45,7 +45,7 @@ The two players are assigned their respective tokens, the zombie emoji and the g
 - The game allows the user to:
   - Play a classic game of Tic Tac Toe.
 
-  - Keep track of each player's and their respective wins as the game progresses. Upon the placing of a token, the occupying space cannot be replaced with the others player's token.
+  - Keep track of each player's token and their respective wins as the game progresses. Upon the placing of a token, the occupying space cannot be replaced with the others player's token.
 
   - When a draw or win is reached, the board is disabled and will not allow for the placing of any additional tokens. Two seconds after the current match concludes, the board will reset and reflect each player's accumulated wins.
 
@@ -59,6 +59,7 @@ The two players are assigned their respective tokens, the zombie emoji and the g
 <br>
 
 ### Resources:
+- [Deploy Link](https://reganlosey.github.io/tic-tac-toe/)
 
 - [Github Repo](https://github.com/reganlosey/tic-tac-toe)
 
