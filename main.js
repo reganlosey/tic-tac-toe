@@ -104,3 +104,16 @@ function timeOutRefresh(){
   enableBoard();
 
 }
+function declareWinnerZombie(){
+  winnerMessage.innerHTML = `<h1>${newGame.zombie.name} Wins</h1>
+  <h2>💀 Woe To The Vanquished💀 </h2>`
+}
+
+function declareWinnerGoblin(){
+  winnerMessage.innerHTML = `<h1>${newGame.goblin.name} Wins</h1>
+  <h2>💀 Woe To The Vanquished💀 </h2>`
+}
+
+function displayDrawMessage(){
+  drawMessage.innerHTML = `<h1>☠️ DEAD END ☠️</h1>`
+}

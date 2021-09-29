@@ -46,24 +46,22 @@ class Game {
     var p1Zombie = this.winningCombos(`${this.zombie.token}`);
     var p2goblin = this.winningCombos(`${this.goblin.token}`);
     if (p1Zombie) {
-      winnerMessage.innerHTML = `<h1>${this.zombie.name} Wins</h1>
-      <h2>💀 Woe To The Vanquished💀 </h2>`
+      declareWinnerZombie();
       hide(currentTurn);
       this.zombie.wins++ ;
       this.zombie.saveWinstoStorage();
       displayScores();
       disableBoard();
-      setTimeout(timeOutRefresh, 3000)
+      setTimeout(timeOutRefresh, 2000)
       return true;
     } else if (p2goblin){
-      winnerMessage.innerHTML = `<h1>${this.goblin.name} Wins</h1>
-      <h2>💀 Woe To The Vanquished💀 </h2>`
+      declareWinnerGoblin();
       hide(currentTurn);
       this.goblin.wins++;
       this.goblin.saveWinstoStorage();
       displayScores();
       disableBoard();
-      setTimeout(timeOutRefresh, 3000)
+      setTimeout(timeOutRefresh, 2000)
       return true;
     }
   }
@@ -73,9 +71,9 @@ class Game {
       this.zombie.saveWinstoStorage();
       this.goblin.saveWinstoStorage();
       hide(currentTurn);
-        drawMessage.innerHTML = `<h1>☠️ DEAD END ☠️</h1>`
+        displayDrawMessage();
         displayScores();
-        setTimeout(timeOutRefresh, 3000)
+        setTimeout(timeOutRefresh, 2000)
         return true;
       }
     }
