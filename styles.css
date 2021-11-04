@@ -1,9 +1,11 @@
 /* *{
-  box-sizing: border-box; */
+  box-sizing: border-box;
+} */
 
 html{
   height:100%;
   width:100%;
+  /* position: absolute; */
 }
 
 body {
@@ -11,15 +13,12 @@ body {
   background-image: url(https://images.unsplash.com/photo-1602974507724-18436ae0bca6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1032&q=80);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   max-height: 100%;
   max-width: 100%;
   margin: 0 auto;
 }
 .header-content{
-  display: flex;
-  justify-content: center;
-  height: 4.6rem;
-  margin-bottom: 2rem;
   font-size: 1.4ch;
   text-shadow: 4px 3px 1px #5a00ad;
 
@@ -50,7 +49,7 @@ header > h2{
 }
 
 .main-game-board {
-  height: 100%;
+  height: 95%;
   margin: 1.06rem 0 .8rem 0;
   display: grid;
   align-items: stretch;
@@ -58,22 +57,9 @@ header > h2{
   text-align: center;
   justify-content: space-between;
 }
-/* main-game-board{
-height: 100%;
-margin: 1.06rem 0 .8rem 0;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-grid-template-rows: 1fr 1fr 1fr;
-text-align: center;
-justify-content: space-evenly;
-justify-items: center;
-align-content: center;
-align-items: center;
-} */
 
 .play-again {
   display: flex;
-  margin: .4rem 0 1rem 0;
   justify-content: center;
 }
 
@@ -138,7 +124,7 @@ align-items: center;
   width: 15rem;
   height: 27rem;
   flex-direction: column;
-  margin-left: 8rem;
+  margin: 0 5% 0 5%;
 
 }
 
@@ -147,7 +133,7 @@ align-items: center;
   width: 15rem;
   height: 27rem;
   flex-direction: column;
-  margin-right: 8rem;
+  margin: 0 5% 0 5%;
 
 }
 .player1-zombie,
