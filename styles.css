@@ -42,7 +42,7 @@ header > h2{
   width: 100%;
   flex-direction: row;
   justify-content: space-between;
-  height: 71vh;
+  height: 50%;
 }
 
 .board-wrapper{
@@ -54,11 +54,22 @@ header > h2{
   margin: 1.06rem 0 .8rem 0;
   display: grid;
   align-items: stretch;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3,1fr);
   text-align: center;
   justify-content: space-between;
 }
+/* main-game-board{
+height: 100%;
+margin: 1.06rem 0 .8rem 0;
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+grid-template-rows: 1fr 1fr 1fr;
+text-align: center;
+justify-content: space-evenly;
+justify-items: center;
+align-content: center;
+align-items: center;
+} */
 
 .play-again {
   display: flex;
