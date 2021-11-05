@@ -44,6 +44,7 @@ The two players are assigned their respective tokens, the zombie emoji and the g
   - Restart the game and clear the win history with a click of the "Begin Again" button. After clicking, the amount of turns taken will be reset and the user will see that the wins of each player have been reset to 0.
 
 <br>
+
 #### Challenges:
  - At first, I had a lot of difficulty with trying to connect the visualization of the cells to the underlying logic. This was an essential obstacle to overcome as without this functionality, I was unable to evaluate any of the winning combinations.
 
